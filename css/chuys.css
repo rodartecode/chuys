@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css?family=Arvo:400,700&display=swap");
+
+:root {
+  --main-bg: #222;
+  --main-text: #eee;
+}
+
+header {
+  display: none;
+}
+
+body {
+  font-family: "Arvo", serif;
+  margin: 0;
+  background: var(--main-bg);
+  color: var(--main-text);
+  height: auto;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+main {
+  max-width: 100%;
+  margin: auto;
+  box-shadow: 30px 0px 40px rgba(black, black, black, 0.1),
+    -30px 0px 40px rgba(black, black, black, 0.1);
+}
+
+#landing {
+  background: var(--main-bg);
+}
+
+#landing-bg {
+  display: none;
+  background-attachment: fixed;
+}
+
+#landing-text {
+  display: flex;
+  flex: 0 1 40vw;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+#landing-text h2 {
+  color: #ccc;
+}
+
+#landing-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("../images/truck.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 50vh;
+  flex: 0 1 60vw;
+  margin: 0;
+}
+
+.btn {
+  padding: 0.5rem 2rem;
+  max-height: 1rem;
+  border: 1px #333 solid;
+  display: inline-block;
+  margin: 0 auto;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #333;
+  background: #ccc;
+  text-align: center;
+  transition: background 500ms ease;
+}
+
+.btn:hover {
+  background: #f5f5f5;
+}
+
+#title {
+  padding: 1.5rem;
+  text-align: center;
+  background: var(--main-text);
+  color: var(--main-bg);
+}
+
+#title h2 {
+  border-left: dotted 1px var(--main-bg);
+  border-right: dotted 1px var(--main-bg);
+  display: inline-block;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.container {
+  padding: 0.8rem;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin: auto;
+  color: var(--main-text);
+}
+
+footer h3 {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+}
+
+@media (min-width: 750px) {
+  #landing {
+    display: flex;
+    height: 100%;
+    background: url("../images/truck.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  #landing-text {
+    height: 100vh;
+  }
+
+  #landing-image {
+    height: 100vh;
+    background: none;
+  }
+
+  .btn {
+    padding: 1rem 3rem;
+  }
+}
