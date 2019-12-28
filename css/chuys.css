@@ -90,7 +90,6 @@ main {
   color: #333;
   background: #ccc;
   text-align: center;
-  transition: background 500ms ease;
 }
 
 .btn:hover {
