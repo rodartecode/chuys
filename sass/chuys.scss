@@ -1,18 +1,27 @@
 @import url("https://fonts.googleapis.com/css?family=Arvo:400,700&display=swap");
+
+$main-bg: rgba(34, 34, 34, 0.4);
+$main-text: #eee;
+$overlay-color: rgba(198, 137, 66, 0.85);
+$menu-speed: 0.75s;
+
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 header {
-  display: block; }
+  display: block;
+}
 
 .menu-wrap {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1; }
-  .menu-wrap .toggler {
+  z-index: 1;
+
+  .toggler {
     position: absolute;
     top: 0;
     left: 0;
@@ -20,34 +29,52 @@ header {
     cursor: pointer;
     width: 50px;
     height: 50px;
-    opacity: 0; }
-    .menu-wrap .toggler:checked ~ .menu {
-      visibility: visible; }
-      .menu-wrap .toggler:checked ~ .menu > div {
-        transform: scale(1);
-        transition-duration: 0.75s; }
-        .menu-wrap .toggler:checked ~ .menu > div > div {
-          opacity: 1;
-          transition: opacity 0.4s ease; }
-    .menu-wrap .toggler:checked:hover + .hamburger > div {
-      transform: rotate(45deg); }
-    .menu-wrap .toggler:checked + .hamburger > div {
-      transform: rotate(135deg); }
-      .menu-wrap .toggler:checked + .hamburger > div::before, .menu-wrap .toggler:checked + .hamburger > div::after {
-        top: 0;
-        transform: rotate(90deg); }
-  .menu-wrap .hamburger {
+    opacity: 0;
+
+    &:checked {
+      & ~ .menu {
+        visibility: visible;
+
+        & > div {
+          transform: scale(1);
+          transition-duration: $menu-speed;
+
+          & > div {
+            opacity: 1;
+            transition: opacity 0.4s ease;
+          }
+        }
+      }
+
+      &:hover + .hamburger > div {
+        transform: rotate(45deg);
+      }
+
+      & + .hamburger > div {
+        transform: rotate(135deg);
+
+        &::before,
+        &::after {
+          top: 0;
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+
+  .hamburger {
     position: absolute;
     top: 0;
     z-index: 1;
     width: 60px;
     height: 60px;
     padding: 1 rem;
-    background: rgba(34, 34, 34, 0.4);
+    background: $main-bg;
     display: flex;
     align-items: center;
-    justify-content: center; }
-    .menu-wrap .hamburger > div {
+    justify-content: center;
+
+    & > div {
       position: relative;
       width: 60%;
       height: 2px;
@@ -55,8 +82,11 @@ header {
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.6s ease; }
-    .menu-wrap .hamburger > div::before, .menu-wrap .hamburger > div::after {
+      transition: all 0.6s ease;
+    }
+
+    & > div::before,
+    & > div::after {
       content: "";
       position: absolute;
       z-index: 1;
@@ -64,10 +94,15 @@ header {
       width: 100%;
       height: 2px;
       background: inherit;
-      transition: all 0.4s ease; }
-    .menu-wrap .hamburger > div::after {
-      top: 10px; }
-  .menu-wrap .menu {
+      transition: all 0.4s ease;
+    }
+
+    & > div::after {
+      top: 10px;
+    }
+  }
+
+  .menu {
     position: fixed;
     top: 0;
     left: 0;
@@ -77,9 +112,10 @@ header {
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: center; }
-    .menu-wrap .menu > div {
-      background: rgba(198, 137, 66, 0.85);
+    justify-content: center;
+
+    & > div {
+      background: $overlay-color;
       border-radius: 75%;
       width: 105vw;
       height: 105vw;
@@ -88,55 +124,71 @@ header {
       align-items: center;
       justify-content: center;
       transform: scale(0);
-      transition: all 0.4s ease; }
-      .menu-wrap .menu > div > div {
+      transition: all 0.4s ease;
+
+      & > div {
         text-align: center;
         max-width: 90vw;
         max-height: 100vh;
         opacity: 0;
-        transition: opacity 0.4s ease; }
-        .menu-wrap .menu > div > div > ul > li {
+        transition: opacity 0.4s ease;
+
+        & > ul > li {
           list-style: none;
           color: white;
           font-size: 1.5rem;
-          padding: 1rem; }
-          .menu-wrap .menu > div > div > ul > li > a {
+          padding: 1rem;
+
+          & > a {
             color: inherit;
             text-decoration: none;
-            transition: color 0.4s ease; }
+            transition: color 0.4s ease;
+          }
+        }
+      }
+    }
+  }
+}
 
 body {
   font-family: "Arvo", serif;
   margin: 0;
-  background: rgba(34, 34, 34, 0.4);
-  color: rgba(34, 34, 34, 0.4);
-  height: auto; }
+  background: $main-bg;
+  color: $main-bg;
+  height: auto;
+}
 
 h1 {
   font-weight: 400;
-  font-size: 2.5rem; }
+  font-size: 2.5rem;
+}
 
 h2 {
   font-weight: 400;
   font-size: 1.2rem;
   text-transform: capitalize;
-  margin: 0; }
+  margin: 0;
+}
 
 img {
   display: block;
-  width: 100%; }
+  width: 100%;
+}
 
 main {
   max-width: 100%;
   margin: auto;
-  box-shadow: 30px 0px 40px rgba(0, 0, 0, 0.1), -30px 0px 40px rgba(0, 0, 0, 0.1); }
+  box-shadow: 30px 0px 40px rgba(0, 0, 00, 0.1), -30px 0px 40px rgba(0, 0, 0, 0.1);
+}
 
 #landing {
-  background: rgba(34, 34, 34, 0.4); }
+  background: $main-bg;
+}
 
 #landing-bg {
   display: none;
-  background-attachment: fixed; }
+  background-attachment: fixed;
+}
 
 #landing-text {
   display: flex;
@@ -146,10 +198,12 @@ main {
   align-items: center;
   text-align: center;
   padding-right: 1rem;
-  padding-left: 1rem; }
+  padding-left: 1rem;
+}
 
 #landing-text h2 {
-  color: #ccc; }
+  color: #ccc;
+}
 
 #landing-image {
   display: flex;
@@ -162,7 +216,8 @@ main {
   background-attachment: fixed;
   height: 50vh;
   flex: 0 1 60vw;
-  margin: 0; }
+  margin: 0;
+}
 
 .btn {
   padding: 0.5rem 2rem;
@@ -174,37 +229,44 @@ main {
   text-decoration: none;
   color: #333;
   background: #ccc;
-  text-align: center; }
+  text-align: center;
+}
 
 .btn:hover {
-  background: #f5f5f5; }
+  background: #f5f5f5;
+}
 
 #title {
   padding: 1.5rem;
   text-align: center;
-  background: #eee;
-  color: rgba(34, 34, 34, 0.4); }
+  background: $main-text;
+  color: $main-bg;
+}
 
 #title h2 {
-  border-left: dotted 1px rgba(34, 34, 34, 0.4);
-  border-right: dotted 1px rgba(34, 34, 34, 0.4);
+  border-left: dotted 1px $main-bg;
+  border-right: dotted 1px $main-bg;
   display: inline-block;
   padding-right: 1rem;
-  padding-left: 1rem; }
+  padding-left: 1rem;
+}
 
 .container {
   padding: 0.8rem;
-  text-align: center; }
+  text-align: center;
+}
 
 footer {
   text-align: center;
   padding: 2rem 1rem;
   margin: auto;
-  color: #eee; }
+  color: $main-text;
+}
 
 footer h3 {
   font-size: 2.5rem;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+}
 
 @media (min-width: 750px) {
   #landing {
@@ -214,16 +276,19 @@ footer h3 {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed; }
+    background-attachment: fixed;
+  }
 
   #landing-text {
-    height: 100vh; }
+    height: 100vh;
+  }
 
   #landing-image {
     height: 100vh;
-    background: none; }
+    background: none;
+  }
 
   .btn {
-    padding: 1rem 3rem; } }
-
-/*# sourceMappingURL=chuys.css.map */
+    padding: 1rem 3rem;
+  }
+}
