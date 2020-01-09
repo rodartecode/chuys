@@ -1,4 +1,82 @@
 @import url("https://fonts.googleapis.com/css?family=Arvo:400,700&display=swap");
+@-webkit-keyframes bouncy {
+  0% {
+    top: 0em; }
+  40% {
+    top: 0em; }
+  43% {
+    top: -0.9em; }
+  46% {
+    top: 0em; }
+  48% {
+    top: -0.4em; }
+  50% {
+    top: 0em; }
+  100% {
+    top: 0em; } }
+@-moz-keyframes bouncy {
+  0% {
+    top: 0em; }
+  40% {
+    top: 0em; }
+  43% {
+    top: -0.9em; }
+  46% {
+    top: 0em; }
+  48% {
+    top: -0.4em; }
+  50% {
+    top: 0em; }
+  100% {
+    top: 0em; } }
+@-o-keyframes bouncy {
+  0% {
+    top: 0em; }
+  40% {
+    top: 0em; }
+  43% {
+    top: -0.9em; }
+  46% {
+    top: 0em; }
+  48% {
+    top: -0.4em; }
+  50% {
+    top: 0em; }
+  100% {
+    top: 0em; } }
+@keyframes bouncy {
+  0% {
+    top: 0em; }
+  40% {
+    top: 0em; }
+  43% {
+    top: -0.9em; }
+  46% {
+    top: 0em; }
+  48% {
+    top: -0.4em; }
+  50% {
+    top: 0em; }
+  100% {
+    top: 0em; } }
+.bouncy {
+  -webkit-animation-duration: 4s;
+  -moz-animation-duration: 4s;
+  -o-animation-duration: 4s;
+  animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: bouncy;
+  -moz-animation-name: bouncy;
+  -o-animation-name: bouncy;
+  animation: bouncy 4s linear 0s infinite normal;
+  -webkit-animation-direction: normal;
+  -moz-animation-direction: normal;
+  -o-animation-direction: normal;
+  animation-direction: normal; }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -29,13 +107,13 @@ header {
         .menu-wrap .toggler:checked ~ .menu > div > div {
           opacity: 1;
           transition: opacity 0.4s ease; }
-    .menu-wrap .toggler:checked:hover + .hamburger > div {
-      transform: rotate(45deg); }
     .menu-wrap .toggler:checked + .hamburger > div {
       transform: rotate(135deg); }
       .menu-wrap .toggler:checked + .hamburger > div::before, .menu-wrap .toggler:checked + .hamburger > div::after {
         top: 0;
-        transform: rotate(90deg); }
+        transform: rotate(270deg); }
+    .menu-wrap .toggler:checked:hover + .hamburger > div {
+      transform: rotate(45deg); }
   .menu-wrap .hamburger {
     position: absolute;
     top: 0;
@@ -81,8 +159,8 @@ header {
     .menu-wrap .menu > div {
       background: rgba(198, 137, 66, 0.85);
       border-radius: 75%;
-      width: 105vw;
-      height: 105vw;
+      width: 210vw;
+      height: 210vw;
       display: flex;
       flex: none;
       align-items: center;
@@ -96,6 +174,7 @@ header {
         opacity: 0;
         transition: opacity 0.4s ease; }
         .menu-wrap .menu > div > div > ul > li {
+          position: relative;
           list-style: none;
           color: white;
           font-size: 1.5rem;
@@ -133,36 +212,32 @@ main {
 
 #landing {
   background: rgba(34, 34, 34, 0.4); }
-
-#landing-bg {
-  display: none;
-  background-attachment: fixed; }
-
-#landing-text {
-  display: flex;
-  flex: 0 1 40vw;
-  height: 50vh;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding-right: 1rem;
-  padding-left: 1rem; }
-
-#landing-text h2 {
-  color: #ccc; }
-
-#landing-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: url("../images/truck.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 50vh;
-  flex: 0 1 60vw;
-  margin: 0; }
+  #landing-text {
+    display: flex;
+    flex: 0 1 40vw;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-right: 1rem;
+    padding-left: 1rem; }
+    #landing-text h2 {
+      color: #ccc; }
+  #landing-bg {
+    display: none;
+    background-attachment: fixed; }
+  #landing-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("../images/truck.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 50vh;
+    flex: 0 1 60vw;
+    margin: 0; }
 
 .btn {
   padding: 0.5rem 2rem;
@@ -174,23 +249,21 @@ main {
   text-decoration: none;
   color: #333;
   background: #ccc;
-  text-align: center; }
-
-.btn:hover {
-  background: #f5f5f5; }
+  text-align: center;
+  position: relative; }
+  .btn:hover {
+    background: #f5f5f5; }
 
 #title {
   padding: 1.5rem;
   text-align: center;
   background: #eee;
   color: rgba(34, 34, 34, 0.4); }
-
-#title h2 {
-  border-left: dotted 1px rgba(34, 34, 34, 0.4);
-  border-right: dotted 1px rgba(34, 34, 34, 0.4);
-  display: inline-block;
-  padding-right: 1rem;
-  padding-left: 1rem; }
+  #title h2 {
+    border-left: dotted 1px rgba(34, 34, 34, 0.4);
+    border-right: dotted 1px rgba(34, 34, 34, 0.4);
+    display: inline-block;
+    padding-right: 1rem; }
 
 .container {
   padding: 0.8rem;
@@ -215,13 +288,11 @@ footer h3 {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed; }
-
-  #landing-text {
-    height: 100vh; }
-
-  #landing-image {
-    height: 100vh;
-    background: none; }
+    #landing-text {
+      height: 100vh; }
+    #landing-image {
+      height: 100vh;
+      background: none; }
 
   .btn {
     padding: 1rem 3rem; } }

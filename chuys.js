@@ -16,9 +16,9 @@ $(document).ready(function() {
     }
   });
 
-  $(function() {
-    createSticky(jQuery("#header"));
-  });
+  // $(function() {
+  //   createSticky(jQuery("#header"));
+  // });
 
   function createSticky(sticky) {
     if (typeof sticky !== "undefined") {
