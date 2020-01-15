@@ -1,0 +1,38 @@
+{
+  "name": "chuys",
+  "version": "0.1.0",
+  "description": "Chuy's Tacos",
+  "main": "chuys.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodartecode/chuys.git"
+  },
+  "keywords": [
+    "chuys",
+    "tacos",
+    "fresno",
+    "ca",
+    "california"
+  ],
+  "author": "Jesse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodartecode/chuys/issues"
+  },
+  "homepage": "https://github.com/rodartecode/chuys#readme",
+  "dependencies": {
+    "next": "^9.1.7",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.1.6",
+    "@types/react": "^16.9.17",
+    "typescript": "^3.7.4"
+  }
+}
