@@ -3,15 +3,15 @@ import Link from 'next/link'
 export default () => (
   <header>
     <nav>
-      <Link href='/tacos'>
+      <Link href="/tacos">
         <a>Tacos</a>
       </Link>{' '}
       |
-      <Link href='/about'>
+      <Link href="/about">
         <a>Taquizas</a>
       </Link>{' '}
       |
-      <Link href='/contact'>
+      <Link href="/contact">
         <a>Contact</a>
       </Link>
     </nav>

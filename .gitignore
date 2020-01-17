@@ -1,8 +1,3 @@
-# all dot files except .gitignore
-.*
-!.gitignore
-
-
 # sass
 .sass-cache/
 *.css.map
