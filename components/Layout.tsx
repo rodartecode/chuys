@@ -1,34 +1,34 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 
-import Footer from './Footer'
-import Header from './Header'
+import Footer from './Footer';
+import Header from './Header';
 
-library.add(fab)
+library.add(fab);
 
 interface Props {
-  title?: string
+  title?: string;
 }
 
 const Layout: React.FunctionComponent<Props> = ({ children, title = "Chuy's Tacos" }) => (
   <div>
     <Head>
-      <title>{title}</title>
+      <title>{ title }</title>
       <meta charSet='utf-8' />
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
     </Head>
 
     <Header />
 
-    {children}
+    { children }
 
     <Footer />
 
-    {/* Global Styles */}
+    {/* Global Styles */ }
 
-    <style jsx global>{`
+    <style jsx global>{ `
       * {
         box-sizing: border-box;
         margin: 0;
@@ -36,6 +36,6 @@ const Layout: React.FunctionComponent<Props> = ({ children, title = "Chuy's Taco
       }
     `}</style>
   </div>
-)
+);
 
-export default Layout
+export default Layout;
