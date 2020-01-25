@@ -1,4 +1,7 @@
-import * as React from 'react'
-import Layout from '../components/Layout'
+import * as React from 'react';
+import Layout from '../components/Layout';
+import { NextPage } from 'next';
 
-export default () => <Layout>Welcome to my app.</Layout>
+const IndexPage: NextPage = () => <Layout>Welcome to my app.</Layout>;
+
+export default IndexPage;

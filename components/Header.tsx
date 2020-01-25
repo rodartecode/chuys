@@ -1,19 +1,24 @@
-import Link from 'next/link'
+import * as React from 'react';
+import Link from 'next/link';
 
-export default () => (
+type Props = {};
+
+const Header: React.FunctionComponent<Props> = () => (
   <header>
     <nav>
-      <Link href="/tacos">
+      <Link href='/tacos'>
         <a>Tacos</a>
       </Link>{' '}
       |
-      <Link href="/about">
+      <Link href='/about'>
         <a>Taquizas</a>
       </Link>{' '}
       |
-      <Link href="/contact">
+      <Link href='/contact'>
         <a>Contact</a>
       </Link>
     </nav>
   </header>
-)
+);
+
+export default Header;

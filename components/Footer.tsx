@@ -1,6 +1,9 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import * as React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default () => (
+type Props = {};
+
+const Footer: React.FunctionComponent<Props> = () => (
   <footer>
     <div>
       <FontAwesomeIcon icon={['fab', 'facebook-square']} />
@@ -12,4 +15,6 @@ export default () => (
       Email: <em>about@chuystacos.com</em>
     </p>
   </footer>
-)
+);
+
+export default Footer;
