@@ -1,9 +1,13 @@
 import React from 'react';
 import { StyledMenu } from './Menu.styled';
 
-const Menu = (): JSX.Element => {
+type MenuProps = {
+  open: boolean;
+};
+
+const Menu = ({ open }: MenuProps): JSX.Element => {
   return (
-    <StyledMenu>
+    <StyledMenu open={open}>
       <a href='/'>
         <span role='img' aria-label='about us'>
           &#x1f481;&#x1f3fb;&#x200d;&#x2642;&#xfe0f;

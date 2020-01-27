@@ -14,12 +14,10 @@ export default class ChuysApp extends App {
         <>
           <GlobalStyles />
 
-          <Container>
-            <Head>
-              <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-            </Head>
-            <Component {...pageProps} />
-          </Container>
+          <Head>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+          </Head>
+          <Component {...pageProps} />
         </>
       </ThemeProvider>
     );

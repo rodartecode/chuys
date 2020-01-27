@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledBurger = styled.button`
+export const StyledBurger = styled.button<{ open: boolean }>`
   position: absolute;
   top: 5%;
   left: 2rem;
@@ -22,10 +22,23 @@ export const StyledBurger = styled.button`
   div {
     width: 2rem;
     height: 0.25rem;
-    background: ${({ theme }): string => theme.colors.primaryLight};
+    background: ${({ theme, open }): string => (open ? theme.colors.primaryDark : theme.colors.primaryLight)};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
+
+    :first-child {
+      transform: ${({ open }): string => (open ? 'rotate(45deg)' : 'rotate(0)')};
+    }
+
+    :nth-child(2) {
+      opacity: ${({ open }): string => (open ? '0' : '1')};
+      transform: ${({ open }): string => (open ? 'translateX(20px)' : 'translateX(0)')};
+    }
+
+    :nth-child(3) {
+      transform: ${({ open }): string => (open ? 'rotate(-45deg)' : 'rotate(0)')};
+    }
   }
 `;

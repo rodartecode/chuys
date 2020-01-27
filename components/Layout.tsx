@@ -1,9 +1,13 @@
 import * as React from 'react';
-import Head from 'next/head';
+import { useState, useRef } from 'react';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
+import { useOnClickOutside } from '../utils/hooks';
+
+import Burger from './Burger';
+import Menu from './Menu';
 import Footer from './Footer';
 import Header from './Header';
 
@@ -13,30 +17,36 @@ type Props = {
   title?: string;
 };
 
-const Layout: React.FunctionComponent<Props> = ({ children, title = "Chuy's Tacos" }) => (
-  <div>
-    <Head>
-      <title>{title}</title>
-      <meta charSet='utf-8' />
-      <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-    </Head>
+const Layout: React.FunctionComponent<Props> = ({ children }) => {
+  const [open, setOpen] = useState(false);
+  const node = useRef<HTMLDivElement>(null);
+  useOnClickOutside(node, () => setOpen(false));
+  return (
+    <>
+      <div>
+        <div ref={node}>
+          <Burger open={open} setOpen={setOpen} />
+          <Menu open={open} />
+        </div>
 
-    <Header />
+        <Header />
 
-    {children}
+        {children}
 
-    <Footer />
+        <Footer />
 
-    {/* Global Styles */}
+        {/* Global Styles */}
 
-    <style jsx global>{`
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-    `}</style>
-  </div>
-);
+        <style jsx global>{`
+          * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+          }
+        `}</style>
+      </div>
+    </>
+  );
+};
 
 export default Layout;

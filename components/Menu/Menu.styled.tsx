@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledMenu = styled.nav`
+export const StyledMenu = styled.nav<{ open: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,6 +12,7 @@ export const StyledMenu = styled.nav`
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
+  transform: ${({ open }): string => (open ? 'translateX(0)' : 'translateX(-100%)')};
 
   @media (max-width: ${({ theme }): string => theme.mobile}) {
     width: 100%;
